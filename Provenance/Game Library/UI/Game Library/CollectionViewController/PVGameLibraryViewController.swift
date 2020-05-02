@@ -1431,7 +1431,9 @@ final class PVGameLibraryViewController: UIViewController, UITextFieldDelegate, 
     }
 
     func setupGameImporter() {
+
         gameImporter = GameImporter.shared
+
         gameImporter.completionHandler = { [unowned self] (_ encounteredConflicts: Bool) -> Void in
             self.updateConflictsButton()
             if encounteredConflicts {
@@ -1470,7 +1472,10 @@ final class PVGameLibraryViewController: UIViewController, UITextFieldDelegate, 
 
     private func initialROMScan() {
         do {
-            let existingFiles = try FileManager.default.contentsOfDirectory(at: PVEmulatorConfiguration.Paths.romsImportPath, includingPropertiesForKeys: nil, options: [.skipsPackageDescendants, .skipsSubdirectoryDescendants])
+            let existingFiles = try FileManager.default.contentsOfDirectory(at: PVEmulatorConfiguration.Paths.romsImportPath,
+                                                                            includingPropertiesForKeys: nil,
+                                                                            options: [.skipsPackageDescendants,
+                                                                                      .skipsSubdirectoryDescendants])
             if !existingFiles.isEmpty {
                 gameImporter.startImport(forPaths: existingFiles)
             }
@@ -1482,20 +1487,24 @@ final class PVGameLibraryViewController: UIViewController, UITextFieldDelegate, 
     }
 
     private func importerScanSystemsDirs() {
-        // Scan each Core direxctory and looks for ROMs in them
+        // Scan each Core directory and looks for ROMs in them
         let allSystems = PVSystem.all.map { $0.asDomain() }
 
         let importOperation = BlockOperation()
 
         allSystems.forEach { system in
+            let systemName = system.name
+//            ELOG("⚠️ system: \(systemName)")
+
             let systemDir = system.romsDirectory
             // URL(fileURLWithPath: config.documentsPath).appendingPathComponent(systemID).path
 
             // Check if a folder actually exists, nothing to do if it doesn't
             guard FileManager.default.fileExists(atPath: systemDir.path) else {
-                VLOG("Nothing found at \(systemDir.path)")
                 return
             }
+
+            ELOG("⚠️ found dir: \(systemDir.lastPathComponent)")
 
             guard let contents = try? FileManager.default.contentsOfDirectory(at: systemDir,
                                                                               includingPropertiesForKeys: nil,
@@ -1504,9 +1513,14 @@ final class PVGameLibraryViewController: UIViewController, UITextFieldDelegate, 
                 return
             }
 
-            let acceptedExtensions = system.extensions
+            let acceptedExtensions = system.extensions.map { $0.lowercased() }
             let filtered = contents.filter {
-                acceptedExtensions.contains($0.pathExtension)
+                if acceptedExtensions.contains($0.pathExtension.lowercased()) {
+                    return true
+                }
+
+                ELOG("📙 rejected: \($0.lastPathComponent)")
+                return false
             }
 
             importOperation.addExecutionBlock {

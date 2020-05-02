@@ -112,12 +112,14 @@ public extension PVFile {
             return resolvedURL
         }
         set {
-            do {
-                try realm?.write {
-                    partialPath = relativeRoot.createRelativePath(fromURL: newValue)
+            autoreleasepool {
+                do {
+                    try realm?.write {
+                        partialPath = relativeRoot.createRelativePath(fromURL: newValue)
+                    }
+                } catch {
+                    ELOG("\(error)")
                 }
-            } catch {
-                ELOG("\(error)")
             }
         }
     }
@@ -137,12 +139,14 @@ public extension PVFile {
             return calculatedMD5
         }
         set {
-            do {
-                try realm?.write {
-                    md5Cache = newValue
+            autoreleasepool {
+                do {
+                    try realm?.write {
+                        md5Cache = newValue
+                    }
+                } catch {
+                    ELOG("\(error)")
                 }
-            } catch {
-                ELOG("\(error)")
             }
         }
     }

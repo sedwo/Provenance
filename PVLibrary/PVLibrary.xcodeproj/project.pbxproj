@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75D6223B245BECE80032F53D /* openvgdb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 75D6223A245BECE80032F53D /* openvgdb.sqlite */; };
+		75D6223C245BECE80032F53D /* openvgdb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 75D6223A245BECE80032F53D /* openvgdb.sqlite */; };
 		B3067F4B2106B5A30091437F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3067F4A2106B5A20091437F /* Foundation.framework */; };
 		B3067F5D2106B8590091437F /* OESQLiteDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = B3579D1E2106B4D600DDEBD6 /* OESQLiteDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B3067F5E2106B8590091437F /* OESQLiteDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = B3579D202106B4D600DDEBD6 /* OESQLiteDatabase.m */; settings = {COMPILER_FLAGS = "-Wno-everything"; }; };
@@ -223,7 +225,6 @@
 		B3AF47D521071FC0002211EE /* XzCrc64Reg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3AF463221071CA5002211EE /* XzCrc64Reg.cpp */; settings = {COMPILER_FLAGS = "-Wno-everything"; }; };
 		B3AF47D621071FCD002211EE /* PropVariantConv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3AF46DA21071CA6002211EE /* PropVariantConv.cpp */; settings = {COMPILER_FLAGS = "-Wno-everything"; }; };
 		B3AF47D721071FCD002211EE /* PropVariant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3AF46DF21071CA6002211EE /* PropVariant.cpp */; settings = {COMPILER_FLAGS = "-Wno-everything"; }; };
-		B3AF47DE21072AD4002211EE /* openvgdb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = B3AF47DC21072AD3002211EE /* openvgdb.sqlite */; };
 		B3AF47DF21072AD4002211EE /* systems.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3AF47DD21072AD3002211EE /* systems.plist */; };
 		B3AF6FBB219160B9000FA7F9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3AF6FBA219160B9000FA7F9 /* MobileCoreServices.framework */; };
 		B3AF6FBD219160BF000FA7F9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3AF6FBC219160BF000FA7F9 /* CoreGraphics.framework */; };
@@ -387,7 +388,6 @@
 		B3C04B2E21077B3100E7AF79 /* BranchRegister.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3AF465F21071CA5002211EE /* BranchRegister.cpp */; };
 		B3C04B2F21077B3100E7AF79 /* PVObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3274E782106BC8800857F52 /* PVObject.swift */; };
 		B3C04B3021077B3100E7AF79 /* PVSaveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3579D2D2106B4D700DDEBD6 /* PVSaveState.swift */; };
-		B3C04B3F21077B3100E7AF79 /* openvgdb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = B3AF47DC21072AD3002211EE /* openvgdb.sqlite */; };
 		B3C04B4021077B3100E7AF79 /* systems.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3AF47DD21072AD3002211EE /* systems.plist */; };
 		B3C04B642107867200E7AF79 /* PVLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C04B632107867200E7AF79 /* PVLibraryTests.swift */; };
 		B3C04B662107867200E7AF79 /* PVLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3579D0F2106B11D00DDEBD6 /* PVLibrary.framework */; };
@@ -427,6 +427,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		75D6223A245BECE80032F53D /* openvgdb.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = openvgdb.sqlite; sourceTree = "<group>"; };
 		B3067F4A2106B5A20091437F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B3067F732106B9130091437F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B3067F752106B9180091437F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -814,7 +815,6 @@
 		B3AF475321071CA6002211EE /* LzmaSDKObjCMutableItem+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LzmaSDKObjCMutableItem+Private.h"; sourceTree = "<group>"; };
 		B3AF475421071CA6002211EE /* LzmaSDKObjCExtractCallback.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LzmaSDKObjCExtractCallback.mm; sourceTree = "<group>"; };
 		B3AF475521071CA6002211EE /* LzmaSDKObjCItem.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LzmaSDKObjCItem.mm; sourceTree = "<group>"; };
-		B3AF47DC21072AD3002211EE /* openvgdb.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = openvgdb.sqlite; sourceTree = "<group>"; };
 		B3AF47DD21072AD3002211EE /* systems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = systems.plist; sourceTree = "<group>"; };
 		B3AF6FBA219160B9000FA7F9 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.1.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		B3AF6FBC219160BF000FA7F9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.1.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
@@ -1599,7 +1599,7 @@
 		B3AF47DB21072AD3002211EE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B3AF47DC21072AD3002211EE /* openvgdb.sqlite */,
+				75D6223A245BECE80032F53D /* openvgdb.sqlite */,
 				B3AF47DD21072AD3002211EE /* systems.plist */,
 			);
 			path = Resources;
@@ -1844,7 +1844,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3AF47DE21072AD4002211EE /* openvgdb.sqlite in Resources */,
+				75D6223B245BECE80032F53D /* openvgdb.sqlite in Resources */,
 				B3AF47DF21072AD4002211EE /* systems.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1853,7 +1853,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3C04B3F21077B3100E7AF79 /* openvgdb.sqlite in Resources */,
+				75D6223C245BECE80032F53D /* openvgdb.sqlite in Resources */,
 				B3C04B4021077B3100E7AF79 /* systems.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -178,6 +178,7 @@ public extension Thread {
 
 public typealias RomDB = RomDatabase
 public final class RomDatabase {
+
     public private(set) static var databaseInitilized = false
 
     public class func initDefaultDatabase() throws {
@@ -262,11 +263,16 @@ public final class RomDatabase {
         return try RomDatabase()
     }
 
-    public private(set) var realm: Realm
+    public private(set) var realm: Realm!
 
     private init() throws {
-        realm = try Realm()
+        do {
+            realm = try Realm()
+        } catch let error {
+            fatalError("Database error: \(error)")
+        }
     }
+
 }
 
 // MARK: - Queries
@@ -352,19 +358,47 @@ public enum RomDeletionError: Error {
 public extension RomDatabase {
     @objc
     func writeTransaction(_ block: () -> Void) throws {
-        if realm.isInWriteTransaction {
-            block()
-        } else {
-            try realm.write {
-                block()
+        autoreleasepool {
+            do {
+                try realm.write {
+                    block()
+                }
+            } catch let error {
+                fatalError("Database error: \(error)")
             }
         }
+
+
+//
+//        autoreleasepool {
+//            try! realm.write {
+//                block()
+//            }
+//        }
+
+/*
+        autoreleasepool {
+            if realm.isInWriteTransaction {
+                block()
+            } else {
+                try! realm.write {
+                    block()
+                }
+            }
+        }
+*/
     }
 
-    @objc
+//    @objc
     func add(_ object: Object, update: Bool = false) throws {
-        try writeTransaction {
-            realm.add(object, update: update ? .all : .error)
+        autoreleasepool {
+            do {
+                try realm.write {
+                    realm.add(object, update: update ? .all : .error)
+                }
+            } catch let error {
+                fatalError("Database error: \(error)")
+            }
         }
     }
 
